@@ -3,12 +3,10 @@ package firebase
 import (
 	"context"
 	"log"
-	"os"
 
 	"cloud.google.com/go/firestore"
-	firebase "firebase.google.com/go/v4"
+	"firebase.google.com/go/v4"
 	"firebase.google.com/go/v4/auth"
-	"google.golang.org/api/option"
 )
 
 var AuthClient *auth.Client
@@ -17,8 +15,7 @@ var FirestoreClient *firestore.Client
 func InitFirebase() {
 	ctx := context.Background()
 
-	opt := option.WithCredentialsFile(os.Getenv("GOOGLE_APPLICATION_CREDENTIALS"))
-	app, err := firebase.NewApp(ctx, nil, opt)
+	app, err := firebase.NewApp(ctx, nil)
 	if err != nil {
 		log.Fatalf("error initializing app: %v", err)
 	}
