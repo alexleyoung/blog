@@ -1,5 +1,7 @@
 package types
 
+import "time"
+
 type Post = struct {
 	title string
 	slug  string

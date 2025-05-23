@@ -1,16 +1,20 @@
 package main
 
 import (
-	"context"
-	"os"
+	"log"
+	"net/http"
 
 	"github.com/alexleyoung/blog/firebase"
-	"github.com/alexleyoung/blog/templates"
+	"github.com/alexleyoung/blog/handlers"
 )
 
 func main() {
-	component := templates.Home()
-	component.Render(context.Background(), os.Stdout)
+	PORT := "8080"
 
 	firebase.InitFirebase()
+
+	http.HandleFunc("/", handlers.Home)
+
+	log.Println("Listening on port " + PORT)
+	log.Fatal(http.ListenAndServe(":"+PORT, nil))
 }
