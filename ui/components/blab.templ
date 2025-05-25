@@ -1,0 +1,15 @@
+package components
+
+import (
+"github.com/alexleyoung/blog/types"
+"github.com/alexleyoung/blog/ui/layouts"
+)
+
+templ Blab(blab types.Post) {
+@layouts.Base(blab.Title) {
+<main>
+	<h1>{blab.Title}</h1>
+	<p>{blab.Body}</p>
+</main>
+}
+}

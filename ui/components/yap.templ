@@ -1,0 +1,13 @@
+package components
+
+import "github.com/alexleyoung/blog/ui/layouts"
+
+templ Yap() {
+@layouts.Base("Yap") {
+<main>
+	<h1>yap here:</h1>
+	<textarea />
+	<button hx-post="/yap" hx-swap="none">yap</button>
+</main>
+}
+}

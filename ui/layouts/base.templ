@@ -1,0 +1,26 @@
+package layouts
+
+templ Base(title string) {
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://unpkg.com/htmx.org@2.0.4"
+		integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
+		crossorigin="anonymous"></script>
+	<script src="/assets/js/htmx.min.js"></script>
+	<title>{title}</title>
+</head>
+
+<body>
+	<nav>
+		<a href={templ.SafeURL("/")}>Home</a>
+		<a href={templ.SafeURL("/yap")}>Yap</a>
+	</nav>
+	{ children... }
+</body>
+
+</html>
+}
