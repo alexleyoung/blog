@@ -9,12 +9,14 @@ import (
 )
 
 func main() {
-	PORT := "8080"
-
 	firebase.InitFirebase()
 
-	http.HandleFunc("/", handlers.Home)
+	PORT := "8080"
+	mux := http.NewServeMux()
 
-	log.Println("Listening on port " + PORT)
-	log.Fatal(http.ListenAndServe(":"+PORT, nil))
+	mux.HandleFunc("GET /", handlers.Home)
+	mux.HandleFunc("GET /blab/{slug}", handlers.Blab)
+
+	log.Println("Server starting on port :" + PORT)
+	log.Fatal(http.ListenAndServe(":"+PORT, mux))
 }

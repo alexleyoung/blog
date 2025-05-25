@@ -1,0 +1,12 @@
+package components
+
+import "github.com/alexleyoung/blog/types"
+
+templ Blab(blab types.Post) {
+@Base(blab.Title) {
+<main>
+	<h1>{blab.Title}</h1>
+	<p>{blab.Body}</p>
+</main>
+}
+}

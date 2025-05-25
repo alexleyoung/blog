@@ -16,7 +16,7 @@ var FirestoreClient *firestore.Client
 
 func InitFirebase() {
 	ctx := context.Background()
-	opt := option.WithCredentialsFile("secrets/service_account_key")
+	opt := option.WithCredentialsFile("secrets/service_account_key.json")
 
 	app, err := firebase.NewApp(ctx, nil, opt)
 	if err != nil {
