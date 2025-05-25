@@ -25,5 +25,6 @@ func Blab(w http.ResponseWriter, r *http.Request) {
 }
 
 func Yap(w http.ResponseWriter, r *http.Request) {
-	http.NotFound(w, r)
+	component := components.Yap()
+	component.Render(r.Context(), w)
 }

@@ -12,7 +12,8 @@ templ Base(title string) {
 
 <body>
 	<nav>
-		<a href="/">Home</a>
+		<a href={templ.SafeURL("/")}>Home</a>
+		<a href={templ.SafeURL("/yap")}>Yap</a>
 	</nav>
 	{ children... }
 </body>

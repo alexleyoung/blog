@@ -16,6 +16,7 @@ func main() {
 
 	mux.HandleFunc("GET /", handlers.Home)
 	mux.HandleFunc("GET /blab/{slug}", handlers.Blab)
+	mux.HandleFunc("GET /yap", handlers.Yap)
 
 	log.Println("Server starting on port :" + PORT)
 	log.Fatal(http.ListenAndServe(":"+PORT, mux))
