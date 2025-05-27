@@ -1,10 +1,11 @@
-package handlers
+package pages
 
 import (
+	"log"
 	"net/http"
 
-	"github.com/alexleyoung/blog/components"
 	"github.com/alexleyoung/blog/types"
+	"github.com/alexleyoung/blog/ui/components"
 )
 
 func Home(w http.ResponseWriter, r *http.Request) {

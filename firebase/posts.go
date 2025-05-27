@@ -1,8 +1,22 @@
 package firebase
 
-import "github.com/alexleyoung/blog/types"
+import (
+	"context"
+	"log"
 
-func GetPosts() types.Post {
-	post := types.Post{}
-	return post
+	"github.com/alexleyoung/blog/types"
+)
+
+// func GetPosts() []types.Post {
+// }
+
+func CreatePost(post types.Post) {
+	ctx := context.Background()
+
+	postsCollection := FirestoreClient.Collection("posts")
+
+	_, _, err := postsCollection.Add(ctx, post)
+	if err != nil {
+		log.Print("failed to add post to DB")
+	}
 }

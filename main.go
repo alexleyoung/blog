@@ -6,6 +6,7 @@ import (
 
 	"github.com/alexleyoung/blog/firebase"
 	"github.com/alexleyoung/blog/handlers"
+	"github.com/alexleyoung/blog/handlers/pages"
 )
 
 func main() {
@@ -14,9 +15,11 @@ func main() {
 	PORT := "8080"
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("GET /", handlers.Home)
-	mux.HandleFunc("GET /blab/{slug}", handlers.Blab)
-	mux.HandleFunc("GET /yap", handlers.Yap)
+	mux.HandleFunc("GET /", pages.Home)
+	mux.HandleFunc("GET /blab/{slug}", pages.Blab)
+
+	mux.HandleFunc("GET /yap", pages.Yap)
+	mux.HandleFunc("POST /yap", handlers.CreatePost)
 
 	log.Println("Server starting on port :" + PORT)
 	log.Fatal(http.ListenAndServe(":"+PORT, mux))
