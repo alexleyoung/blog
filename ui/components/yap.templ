@@ -6,7 +6,7 @@ templ Yap() {
 @layouts.Base("Yap") {
 <main>
 	<h1>yap here:</h1>
-	<form hx-post="/yap" hx-target="results">
+	<form hx-post="/yap" hx-target="#results">
 		<div>
 			<label for="title">titleington</label>
 			<input name="title" type="text" />
@@ -15,7 +15,7 @@ templ Yap() {
 			<label for="body">bodyington</label>
 			<textarea name="body" />
 		</div>
-		<button type="button">yap</button>
+		<button type="submit">yap</button>
 	</form>
 	<div id="results">
 	</div>

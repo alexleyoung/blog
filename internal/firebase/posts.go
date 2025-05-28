@@ -7,10 +7,12 @@ import (
 	"github.com/alexleyoung/blog/types"
 )
 
-// func GetPosts() []types.Post {
-// }
+func GetPosts() []types.Post {
+	// TODO:
+	return []types.Post{}
+}
 
-func CreatePost(post types.Post) {
+func CreatePost(post types.Post) error {
 	ctx := context.Background()
 
 	postsCollection := FirestoreClient.Collection("posts")
@@ -18,5 +20,8 @@ func CreatePost(post types.Post) {
 	_, _, err := postsCollection.Add(ctx, post)
 	if err != nil {
 		log.Print("failed to add post to DB")
+		return err
 	}
+
+	return nil
 }
