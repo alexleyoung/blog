@@ -4,9 +4,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/alexleyoung/blog/firebase"
-	"github.com/alexleyoung/blog/handlers"
-	"github.com/alexleyoung/blog/handlers/pages"
+	"github.com/alexleyoung/blog/internal/firebase"
+	"github.com/alexleyoung/blog/internal/handlers"
+	"github.com/alexleyoung/blog/internal/handlers/pages"
 )
 
 func main() {
