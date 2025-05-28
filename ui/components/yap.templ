@@ -6,8 +6,19 @@ templ Yap() {
 @layouts.Base("Yap") {
 <main>
 	<h1>yap here:</h1>
-	<textarea />
-	<button hx-post="/yap" hx-swap="none">yap</button>
+	<form hx-post="/yap" hx-target="results">
+		<div>
+			<label for="title">titleington</label>
+			<input name="title" type="text" />
+		</div>
+		<div>
+			<label for="body">bodyington</label>
+			<textarea name="body" />
+		</div>
+		<button type="button">yap</button>
+	</form>
+	<div id="results">
+	</div>
 </main>
 }
 }
