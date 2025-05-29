@@ -34,5 +34,5 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.WriteHeader(http.StatusCreated)
-	w.Write([]byte("post created successfully!"))
+	w.Write([]byte("yap created successfully!"))
 }

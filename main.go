@@ -15,6 +15,9 @@ func main() {
 	PORT := "8080"
 	mux := http.NewServeMux()
 
+	fs := http.FileServer(http.Dir("./static"))
+	mux.Handle("GET /static/...", http.StripPrefix("/static/", fs))
+
 	mux.HandleFunc("GET /", pages.Home)
 	mux.HandleFunc("GET /blab/{slug}", pages.Blab)
 
