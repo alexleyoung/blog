@@ -11,6 +11,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	posts, err := firebase.GetAllPosts()
 	if err != nil {
 		http.Error(w, "error fetching postingtons whoops", http.StatusBadRequest)
+		http.NotFound(w, r)
 		return
 	}
 
