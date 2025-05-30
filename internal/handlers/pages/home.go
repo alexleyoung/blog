@@ -15,6 +15,6 @@ func Home(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	component := components.Blobs(posts)
+	component := components.Home(posts)
 	component.Render(r.Context(), w)
 }

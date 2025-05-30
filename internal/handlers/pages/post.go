@@ -7,19 +7,19 @@ import (
 	"github.com/alexleyoung/blog/ui/components"
 )
 
-func Blab(w http.ResponseWriter, r *http.Request) {
+func Post(w http.ResponseWriter, r *http.Request) {
 	slug := r.PathValue("slug")
 
-	posts, err := firebase.GetAllPosts()
+	blabingtons, err := firebase.GetAllPosts()
 	if err != nil {
 		http.Error(w, "error fetching postingtons whoops", http.StatusBadRequest)
 		http.NotFound(w, r)
 		return
 	}
 
-	for _, blab := range posts {
+	for _, blab := range blabingtons {
 		if blab.Slug == slug {
-			component := components.Blab(blab)
+			component := components.Post(blab)
 			component.Render(r.Context(), w)
 			return
 		}

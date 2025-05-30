@@ -1,14 +1,19 @@
 package components
 
 import (
+"time"
+
 "github.com/alexleyoung/blog/types"
 "github.com/alexleyoung/blog/ui/layouts"
 )
 
-templ Blab(blab types.Post) {
+templ Post(blab types.Post) {
 @layouts.Base(blab.Title) {
 <main>
 	<h1>{blab.Title}</h1>
+	<p>created on {blab.CreatedAt.Format(time.RFC1123)}</p>
+	<p>updated on {blab.UpdatedAt.Format(time.RFC1123)}</p>
+	<button>edit</button>
 	<p>{blab.Body}</p>
 </main>
 }

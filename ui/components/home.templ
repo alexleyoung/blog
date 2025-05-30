@@ -5,7 +5,7 @@ import (
 "github.com/alexleyoung/blog/ui/layouts"
 )
 
-templ Blobs(posts []types.Post) {
+templ Home(posts []types.Post) {
 @layouts.Base("See blabs") {
 <ul>
 	for _, post := range posts {

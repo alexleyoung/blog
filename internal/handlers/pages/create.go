@@ -7,6 +7,6 @@ import (
 )
 
 func Yap(w http.ResponseWriter, r *http.Request) {
-	component := components.Yap()
+	component := components.Create()
 	component.Render(r.Context(), w)
 }
