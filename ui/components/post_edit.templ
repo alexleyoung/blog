@@ -1,0 +1,24 @@
+package components
+
+import "github.com/alexleyoung/blog/ui/layouts"
+
+templ Edit() {
+@layouts.Base("Edit") {
+<main>
+	<h1>edit:</h1>
+	<form hx-patch="/blab" hx-target="#results">
+		<div>
+			<label for="title">titleington</label>
+			<input id="title" name="title" type="text" />
+		</div>
+		<div>
+			<label for="body">bodyington</label>
+			<textarea id="body" name="body" />
+		</div>
+		<button type="submit">yap</button>
+	</form>
+	<div id="results">
+	</div>
+</main>
+}
+}

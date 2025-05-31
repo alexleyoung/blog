@@ -8,7 +8,7 @@ import (
 )
 
 func Home(w http.ResponseWriter, r *http.Request) {
-	posts, err := firebase.GetAllPosts()
+	posts, err := firebase.GetAllPosts(r.Context())
 	if err != nil {
 		http.Error(w, "error fetching postingtons whoops", http.StatusBadRequest)
 		http.NotFound(w, r)

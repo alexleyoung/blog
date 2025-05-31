@@ -17,9 +17,11 @@ func main() {
 
 	mux.HandleFunc("GET /", pages.Home)
 	mux.HandleFunc("GET /blab/{slug}", pages.Post)
+	mux.HandleFunc("GET /yap", pages.Create)
+	mux.HandleFunc("GET /edit", pages.Edit)
 
-	mux.HandleFunc("GET /yap", pages.Yap)
-	mux.HandleFunc("POST /yap", handlers.CreatePost)
+	mux.HandleFunc("POST /blab", handlers.PostPost)
+	mux.HandleFunc("PATCH /blab", handlers.PatchPost)
 
 	log.Println("Server starting on port :" + PORT)
 	log.Fatal(http.ListenAndServe(":"+PORT, mux))

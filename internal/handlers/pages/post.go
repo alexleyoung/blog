@@ -10,7 +10,7 @@ import (
 func Post(w http.ResponseWriter, r *http.Request) {
 	slug := r.PathValue("slug")
 
-	blabingtons, err := firebase.GetAllPosts()
+	blabingtons, err := firebase.GetAllPosts(r.Context())
 	if err != nil {
 		http.Error(w, "error fetching postingtons whoops", http.StatusBadRequest)
 		http.NotFound(w, r)

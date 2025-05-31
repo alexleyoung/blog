@@ -6,7 +6,7 @@ import (
 	"github.com/alexleyoung/blog/ui/components"
 )
 
-func Create(w http.ResponseWriter, r *http.Request) {
-	component := components.Create()
+func Edit(w http.ResponseWriter, r *http.Request) {
+	component := components.Edit()
 	component.Render(r.Context(), w)
 }

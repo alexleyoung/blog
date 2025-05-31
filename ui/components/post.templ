@@ -9,13 +9,13 @@ import (
 
 templ Post(blab types.Post) {
 @layouts.Base(blab.Title) {
-<main hx-target="this" hx-swap="outerHTML">
+<main hx-target="this">
 	<h1>{blab.Title}</h1>
 	<p>created on {blab.CreatedAt.Format(time.RFC1123)}</p>
 	<p>updated on {blab.UpdatedAt.Format(time.RFC1123)}</p>
-	<button hx-get="/">edit</button>
+	<button hx-get="/edit">edit</button>
 	<p>{blab.Body}</p>
-	<button hx-delete="/post">delete</button>
+	<button hx-delete="/blab">delete</button>
 </main>
 }
 }
