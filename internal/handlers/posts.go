@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"log"
 	"net/http"
 	"time"
 
@@ -21,6 +22,7 @@ func PatchPost(w http.ResponseWriter, r *http.Request) {
 	title := form.Get("title")
 	body := form.Get("body")
 	if title == "" || body == "" {
+		log.Print("can't have blank haha fail.")
 		http.Error(w, "can't have blank haha fail.", http.StatusBadRequest)
 		return
 	}
@@ -29,6 +31,7 @@ func PatchPost(w http.ResponseWriter, r *http.Request) {
 	iter := firebase.FirestoreClient.Collection("posts").Where("title", "==", title).Documents(r.Context())
 	doc, err := iter.Next()
 	if err != nil {
+		log.Print(title)
 		http.Error(w, "trouble finding post... awkward haha", http.StatusInternalServerError)
 		return
 	}
@@ -41,6 +44,7 @@ func PatchPost(w http.ResponseWriter, r *http.Request) {
 	})
 
 	if err != nil {
+		log.Print("failed to update rip")
 		http.Error(w, "failed to update rip", http.StatusInternalServerError)
 		return
 	}
