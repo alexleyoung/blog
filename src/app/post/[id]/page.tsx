@@ -1,4 +1,3 @@
-
 import { getPost, Post } from '@/lib/posts';
 import { notFound } from 'next/navigation';
 
