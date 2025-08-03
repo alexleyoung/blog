@@ -1,5 +1,5 @@
-
-import { firestore } from './firebaseAdmin';
+import admin from './firebaseAdmin';
+import { DocumentData, QueryDocumentSnapshot } from 'firebase-admin/firestore';
 
 export interface Post {
   id: string;
@@ -9,7 +9,7 @@ export interface Post {
   updatedAt: Date;
 }
 
-const postsCollection = firestore.collection('posts');
+const postsCollection = admin.firestore().collection('posts');
 
 export const createPost = async (post: Omit<Post, 'id' | 'createdAt' | 'updatedAt'>): Promise<Post> => {
   const now = new Date();
@@ -42,7 +42,7 @@ export const deletePost = async (id: string): Promise<void> => {
 
 export const listPosts = async (): Promise<Post[]> => {
   const snapshot = await postsCollection.orderBy('createdAt', 'desc').get();
-  return snapshot.docs.map(doc => {
+  return snapshot.docs.map((doc: QueryDocumentSnapshot<DocumentData>) => {
     const data = doc.data();
     return { id: doc.id, ...data } as Post;
   });
